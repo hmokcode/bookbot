@@ -5,19 +5,21 @@ def main():
     split_string = split_char(lowered_text)
     count = count_char(split_string)
     
+    print(f"--- Begin report of {book_path} ---")
+    print(f"{get_amount(text)} words found in the document")
     print(count)
     #print(split_string)
     #print(lowered_text)
-    #print(f"the number of words is: {get_amount(text)}")
     #print(text)
 
 def count_char(split_string):
     alphabet_count = {}
     for char in split_string:
-        if char in alphabet_count:
-            alphabet_count[char] += 1
-        else:
-            alphabet_count[char] = 1
+        if char.isalpha():
+            if char in alphabet_count:
+                alphabet_count[char] += 1
+            else:
+                alphabet_count[char] = 1
     return alphabet_count
 
 def split_char(lowered_text):
